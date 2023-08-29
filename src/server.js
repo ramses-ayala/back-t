@@ -1,7 +1,8 @@
 const express = require('express');
 
 const app = express();
-const authRoutes = require("../src/routes/auth/authUsers");
+
+const indexRoutes = require("./index.routes");
 
 // settings
 app.set("port", process.env.PORT || 8000);
@@ -10,7 +11,7 @@ app.set("port", process.env.PORT || 8000);
 app.use(express.json({extended: false}));
 
 // routes
-app.use(authRoutes);
+app.use("/api", indexRoutes);
 
 
 app.listen(app.get('port'), () => {
